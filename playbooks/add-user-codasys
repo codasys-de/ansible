@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  become: true
+  tasks:
+    - name: Add the user 'codasys' and ad them to sudoers
+      ansible.builtin.user:
+        name: codasys
+        create_home: yes
+        group: adm,cdrom,sudo,dip,lxd
+        append: yes
