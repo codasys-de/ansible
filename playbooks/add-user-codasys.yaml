@@ -13,4 +13,4 @@
       ansible.posix.authorized_key:
         user: codasys
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/authorized_keys') }}"
+        key: "{{ lookup('file', '/home/ubuntu/.ssh/authorized_keys') }}"
