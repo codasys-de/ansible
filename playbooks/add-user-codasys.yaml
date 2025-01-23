@@ -7,5 +7,5 @@
       ansible.builtin.user:
         name: codasys
         create_home: yes
-        group: adm,cdrom,sudo,dip,lxd
+        groups: adm,cdrom,sudo,dip,lxd
         append: yes
