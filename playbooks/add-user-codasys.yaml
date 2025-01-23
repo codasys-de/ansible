@@ -9,3 +9,8 @@
         create_home: yes
         groups: adm,cdrom,sudo,dip,lxd
         append: yes
+    - name: Set authorized key for user codasys copying it from current user
+      ansible.posix.authorized_key:
+        user: codasys
+        state: present
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/authorized_keys') }}"
