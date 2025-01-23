@@ -5,7 +5,7 @@
   tasks:
     - name: Add the user with 'username' and ad them to different groups
       ansible.builtin.user:
-        name: {{ username }}
+        name: "{{ username }}"
         shell: /bin/bash
         create_home: yes
         groups: adm,cdrom,sudo,dip,lxd
@@ -16,6 +16,6 @@
         content: '{{ username }} ALL=(ALL) NOPASSWD:ALL'
     - name: Set authorized key for user codasys copying it from local file
       ansible.posix.authorized_key:
-        user: {{ username }}
+        user: "{{ username }}"
         state: present
         key: "{{ lookup('file', '/config/.ssh/authorized_keys') }}"
